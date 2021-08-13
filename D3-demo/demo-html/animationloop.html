@@ -31,12 +31,12 @@
         .attr('transform', `translate(${margin.left},${margin.top})`)
 
     const xScale = d3.scaleLinear()
-        .domain([0, d3.max(data, d => d.value)])
+        .domain([0, d3.max(data, datum => datum.value)])
         .range([0, innerWidth])
         .nice()
 
     const yScale = d3.scaleBand()
-        .domain(data.map(d => d.name))
+        .domain(data.map(datum => datum.name))
         .range([0, innerHeight])
         .padding(0.1)
 
