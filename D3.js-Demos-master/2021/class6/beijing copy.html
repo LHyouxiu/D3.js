@@ -27,7 +27,7 @@
             const projection = d3.geoNaturalEarth1();
             projection.fitSize([innerWidth, innerHeight], data);
             const path = d3.geoPath().projection(projection);
-            console.log(path(data.features),data.features)
+            console.log(path(data.features))
             mainGroup.selectAll('path').data(data.features).join('path')
                 .attr('stroke', 'black').attr('fill', 'white')
                 .attr('d', path)

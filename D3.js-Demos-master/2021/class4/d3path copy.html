@@ -25,7 +25,6 @@
         // .curve(d3.curveLinear); // default
         svg.append('path').attr('stroke', 'black').attr('fill', 'none')
         .attr('d', pathLine(myArray));
-        console.log(pathLine(myArray));//M100,100L200,300L300,50L400,600
 
         const part1 = {'startAngle': 0, 'endAngle': 1.1855848768577961};
         const pathArc1 = d3.arc().innerRadius(100).outerRadius(200);

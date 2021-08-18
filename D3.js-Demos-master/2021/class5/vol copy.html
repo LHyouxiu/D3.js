@@ -21,7 +21,6 @@
         d3.json('volcano.json').then(async data => {
             let color = d3.scaleSequential(d3.interpolatePlasma).domain(d3.extent(data.values));          
             const thresholds = color.ticks(20);
-            console.log(data,thresholds);
             console.log(color.domain());
             console.log(color(150));
             console.log(color(195));

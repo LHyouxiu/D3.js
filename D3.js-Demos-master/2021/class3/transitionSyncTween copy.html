@@ -69,7 +69,6 @@
                 var i = d3.interpolate(this.textContent, d.value);
                 return function(t) {
                     this.textContent = formatPercent(i(t));
-                    console.log(t,'---------',this.textContent);
                 };
             });
             await transition.end();

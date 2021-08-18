@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TransitionSyncTween</title>
+    <title>TransitionSync</title>
     <script src="d3.min.js"></script>
   </head>
   <body>
@@ -52,28 +52,28 @@
         .attr('y', d => yScale(d.name) + 5 + yScale.bandwidth() / 2)
 
         var formatPercent = d3.format(".2f");
+        console.log(435.1241241234);
+        console.log(formatPercent(435.1241241234)); // 435.12
+        console.log(66.818213412314);
+        console.log(formatPercent(66.813213412314)); // 66.81
 
         (async () => {
-          while(true){
-            data.forEach(d => {
-                d.value = Math.random() * 20;
-            });
-            let transition = d3.transition().ease(d3.easeElastic)//.ease(d3.easeLinear) // we can optionally alter 'ease'; 
-            .duration(1000);
-            rects.transition(transition) 
-            .attr('width', d => xScale(d.value))
-            .attr('fill', () => d3.interpolateRainbow(Math.random()));
-            texts.transition(transition)
-            .attr('x', d => xScale(d.value))
-            .tween("text", function(d) {
-                var i = d3.interpolate(this.textContent, d.value);
-                return function(t) {
-                    this.textContent = formatPercent(i(t));
-                    console.log(t,'---------',this.textContent);
-                };
-            });
-            await transition.end();
-          }
+            while(true){
+                data.forEach(d => {
+                    d.value = Math.random() * 20;
+                });
+                let transition = d3.transition().duration(1000)//.ease(d3.easeElastic);
+
+                rects.transition(transition) 
+                .attr('width', d => xScale(d.value))
+                .attr('fill', () => d3.interpolateRainbow(Math.random()));
+
+                texts.transition(transition)
+                .attr('x', d => xScale(d.value))
+                .text(d => formatPercent(d.value));
+                
+                await transition.end();
+            }
         })()
     </script>
   </body>

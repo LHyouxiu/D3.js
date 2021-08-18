@@ -140,10 +140,9 @@
             .tickFormat(function (d) { 
                 if (d === 0) return 0; // No label for '0'
                 else if (d < 0) d = -d; // No nagative labels
-                console.log(formatter(d));
                 return formatter(d);
             })
-            // .tickFormat(d3.format('.2s'))// -3.5k  -3.0k  -2.5k  ....
+            //.tickFormat(d3.format('.2s'))
             .tickPadding(10); // .tickPadding is used to prevend intersection of ticks; 
             const xAxis = d3.axisBottom(xScale)
             //.tickFormat(d3.format('.2s'))
