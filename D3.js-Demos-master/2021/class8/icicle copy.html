@@ -54,11 +54,9 @@
         }
 
         d3.json('xinjiang.json').then(data => {
-            // console.log(d3.hierarchy(data),'---',data);
             let hiedata = d3.hierarchy(data)
             .sum(d => d.population).sort((a, b) => b.population - a.population);
             root = d3.partition().size([height, width])(hiedata);
-            console.log(root);
             render(root);
         });
 

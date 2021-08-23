@@ -31,14 +31,15 @@
             .attr('id', d => d.properties.name);
 
 
-            // svg.selectAll('text').data(data.features).join('text')
-            // .attr('text-anchor', 'middle').attr('font-size', '0.8em')
-            // .text(d => d.properties.name)
+            svg.selectAll('text').data(data.features).join('text')
+            .attr('text-anchor', 'middle').attr('font-size', '0.8em')
+            .text(d => d.properties.name)
             // .attr('transform', d => `translate(${projection([d.properties.centroid[0], d.properties.centroid[1]])})`)
-            // .attr('transform', d => {
-            //     let p = d3.select(`#${d.properties.name}`).node().getPointAtLength(0);
-            //     return `translate(${p.x}, ${p.y})`;
-            // })
+            .attr('transform', d => {
+                let p = d3.select(`#${d.properties.name}`).node().getPointAtLength(0);
+                console.log(d3.select(`#${d.properties.name}`).node());
+                return `translate(${p.x}, ${p.y})`;
+            })
         });
 
     </script>
